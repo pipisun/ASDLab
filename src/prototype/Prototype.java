@@ -1,5 +1,5 @@
 package prototype;
 
 public interface Prototype {
-	public Prototype doClone();
+	public Prototype doClone() throws CloneNotSupportedException;
 }

@@ -1,6 +1,12 @@
 package prototype;
 
-public class Supervisor {
+import java.io.Serializable;
+
+public class Supervisor implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	String name;
 	
 	public Supervisor(String name){

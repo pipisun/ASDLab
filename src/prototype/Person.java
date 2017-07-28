@@ -1,6 +1,6 @@
 package prototype;
 
-public class Person implements Prototype {
+public class Person implements Prototype, Cloneable {
 	String name;
 	Supervisor supervisor;
 
@@ -26,9 +26,10 @@ public class Person implements Prototype {
 	}
 
 	@Override
-	public Prototype doClone() {
+	public Prototype doClone() throws CloneNotSupportedException {
 		// TODO Auto-generated method stub
-		return new Person(name);
+//		return new Person(name);
+		return (Prototype)super.clone();
 	}
 
 	public String toString() {

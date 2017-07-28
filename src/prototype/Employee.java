@@ -24,28 +24,39 @@ public class Employee implements Cloneable,Serializable{
 
 	public Employee(){}
 	
-	public Employee(int id, String lastname, String firstname, String streetAddress, String city, String state,
-			String zipcode) {
-		//super();
-		this.id = id;
-		Lastname = lastname;
-		Firstname = firstname;
-		this.streetAddress = streetAddress;
-		this.city = city;
-		this.state = state;
-		this.zipcode = zipcode;
-	}
+//	@Override
+//	public Employee clone() {
+//		try {
+//			return (Employee) super.clone();
+//		} catch (CloneNotSupportedException e) {
+//			return null;
+//		}
+//	}
+	
+//	public Employee(int id, String lastname, String firstname, String streetAddress, String city, String state,
+//			String zipcode) {
+//		//super();
+//		this.id = id;
+//		Lastname = lastname;
+//		Firstname = firstname;
+//		this.streetAddress = streetAddress;
+//		this.city = city;
+//		this.state = state;
+//		this.zipcode = zipcode;
+//	}
 
-	protected Object deepClone() throws IOException,ClassNotFoundException{
+	public Employee deepClone() throws IOException,ClassNotFoundException{
 		
 		ByteArrayOutputStream bos = new ByteArrayOutputStream();
 		ObjectOutputStream oos = new ObjectOutputStream(bos);
-		oos.writeObject(new Employee());
-		
+//		Employee e = new Employee(id, Lastname, Firstname, streetAddress, city, state, zipcode);
+//		e.setSupervisor(supervisor);
+//		oos.writeObject(e);
+		oos.writeObject(this);
 		
 		ByteArrayInputStream bis = new ByteArrayInputStream(bos.toByteArray());
 		ObjectInputStream ois = new ObjectInputStream(bis);
-		return ois.readObject();
+		return (Employee)ois.readObject();
 	}
 
 	public int getId() {
